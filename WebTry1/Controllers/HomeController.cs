@@ -14,12 +14,14 @@ namespace WebTry1.Controllers
         akshopEntities1 context = new akshopEntities1();
         public ActionResult Index()
         {
+            //faker---Bogus
             var fakeData = new Faker<brand>()
                 .RuleFor(x => x.brand1, f => f.Name.FullName());
 
             var dataIs = fakeData.Generate(100);
             context.brands.AddRange(dataIs);
             context.SaveChanges();
+            
             return View(context.brands.ToList());
         }
         [HttpGet]
