@@ -1,0 +1,30 @@
+﻿@model IEnumerable<WebTry1.Models.brand>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Home Page</h1>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Brand</th>
+                <th>Operation</th>
+            </tr>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.brand1</td>
+                    <td><a href="/home/edit/@item.id">Edit</a> &nbsp; &nbsp; <a href="/home/delete/@item.id">Delete</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

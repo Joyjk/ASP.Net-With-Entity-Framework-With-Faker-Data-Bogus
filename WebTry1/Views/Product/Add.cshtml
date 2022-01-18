@@ -1,0 +1,60 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div> 
+        <h2>Add Product</h2>
+        <form method="post">
+            <table>
+                <tr>
+                    <td>Product Name</td>
+                    <td><input type="text" name="prodname" /></td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>
+                        <select name="cat_id">
+                            @foreach(var item in ViewBag.categories)
+                            {
+                                <option value="@item.id">@item.category1</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brands</td>
+                    <td>
+                        <select name="brand_id">
+                            @foreach(var item in ViewBag.brands)
+                            {
+                                <option value="@item.id">@item.brand1</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Quantity</td>
+                    <td><input type="text" name="qty" /></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="text" name="price" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add" /></td>
+                </tr>
+                
+                
+            </table>
+        </form>
+    </div>
+</body>
+</html>
