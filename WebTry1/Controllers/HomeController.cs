@@ -13,7 +13,13 @@ namespace WebTry1.Controllers
     {
         akshopEntities1 context = new akshopEntities1();
         public ActionResult Index()
-        { 
+        {
+            var fakeData = new Faker<brand>()
+                .RuleFor(x => x.brand1, f => f.Name.FullName());
+
+            var dataIs = fakeData.Generate(100);
+            context.brands.AddRange(dataIs);
+            context.SaveChanges();
             return View(context.brands.ToList());
         }
         [HttpGet]
@@ -24,15 +30,8 @@ namespace WebTry1.Controllers
 
         public ActionResult Add(brand brand)
         {
-           
-            // context.SaveChanges();
-
-            var fakeData = new Faker<brand>()
-                .RuleFor(x => x.brand1, f => f.Name.FullName());
-
-            var dataIs = fakeData.Generate(100);
-            context.brands.AddRange(dataIs);
-            context.SaveChanges();
+             context.brands.Add(brand);
+             context.SaveChanges();   
             return RedirectToAction("Index");
         }
 
